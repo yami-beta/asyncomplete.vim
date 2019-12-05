@@ -36,7 +36,9 @@ function! s:on_insert_enter() abort
 endfunction
 
 function! s:on_insert_leave() abort
-    unlet s:previous_position
+    if exists('s:previous_position')
+        unlet s:previous_position
+    endif
 endfunction
 
 function! s:on_text_changed_i() abort
